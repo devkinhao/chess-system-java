@@ -24,7 +24,7 @@ public class ChessMatch {
 		}
 		return mat;
 	}
-	
+
 	public boolean[][] possibleMoves(ChessPosition sourcePosition) {
 		Position position = sourcePosition.toPosition();
 		validateSourcePosition(position);
@@ -50,8 +50,9 @@ public class ChessMatch {
 	}
 
 	private void validateTargetPosition(Position source, Position target) {
-		if (!board.piece(source).possibleMove(target));
-		throw new ChessException("The chosen piece can't move to target position");
+		if (!board.piece(source).possibleMove(target)) {
+			throw new ChessException("The chosen piece can't move to target position");
+		}
 	}
 
 	private Piece makeMove(Position source, Position target) {
